@@ -1,0 +1,48 @@
+<!--<ul class="list-unstyled">-->
+<!--  <#% candidates.each do | candidate | %>-->
+<!--    <li class="media">-->
+<!--      <div>-->
+<!--        <#%= candidate.politician.name %>-->
+<!--        <#%= candidate.party %>-->
+<!--        <#%= candidate.pledge %>-->
+<!--      </div>-->
+<!--      <#%= form_with model: candidate.ballots.build, url: candidate_ballots_path(candidate_id: candidate.id), local: true do |f| %>-->
+<!--        <#%= render 'layouts/error_messages', model: f.object %>-->
+<!--        <#%= hidden_field_tag :user_id, current_user.id %>-->
+<!--        <#%= hidden_field_tag :election_id, election.id %>-->
+<!--        <#%= f.submit "投票する" %>-->
+<!--      <#% end %>-->
+<!--    </li>-->
+<!--  <#% end %>-->
+<!--</ul>-->
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">氏名</th>
+        <th scope="col">政党</th>
+        <th scope="col">公約</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% candidates.each do | candidate | %>
+      <tr>
+        <th>
+          <%= candidate.politician.name %>
+          <%= form_with model: candidate.ballots.build, url: candidate_ballots_path(candidate_id: candidate.id), local: true do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
+            <%= hidden_field_tag :user_id, current_user.id %>
+            <%= hidden_field_tag :election_id, election.id %>
+            <%= f.submit "投票する" %>
+          <% end %>
+        </th>
+        <td>
+          <%= candidate.party %>
+          <%= image_tag("/silhouette.png", width: "100px") %>
+        </td>
+        <td><%= candidate.pledge %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

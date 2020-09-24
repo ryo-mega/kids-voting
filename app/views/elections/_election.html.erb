@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">参加ボタン</th>
+        <th scope="col">選挙</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% elections.each do | election | %>
+      <tr>
+        <th>
+          <%# if current_user %>
+          <%= link_to '選挙に参加しよう！', election_candidates_path(election) %>
+        </th>
+        <td>
+          第<%= election.term %>回
+        </td>
+        <td>
+          <%= election.name %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,23 @@
+<% if logged_in? %>
+<div class="text-center">
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <h3>使い方</h3>
+  <p>
+  画面上部にあるナビバーより、<%= link_to 'My profile', user_path(current_user) %>へ飛んでください。
+  その後、"Election"をクリックすると、選挙の一覧が表示されますので、任意の選挙に参加をお願い致します。
+  選挙に参加したら、誰か1名の候補者に投票することが可能です。その後、アンケートにお答えくださると幸いです。
+  </p>
+</div>
+<% else %>
 <div class="center jumbotron">
   <div class="text-center">
-    <h1>Welcome to the KidsVoting</h1>
+    <h1>Welcome to the Kids Voting</h1>
+    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    <h3>Kids Votingって？？</h2>
+    <p>このサービスは、18歳未満の未だ投票権を持たない方々を対象に、擬似的に投票行動を体験出来るサービスです。
+    <br>
+    現在このサービスは開発中で、あくまでテスト段階です。新規ユーザーの方は、アカウントを以上のボタンより登録してください!!
+    </p>
   </div>
 </div>
+<% end %>

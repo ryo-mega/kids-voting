@@ -1,0 +1,9 @@
+<%#= render 'layouts/error_messages', model: ballot.object %>
+<p>
+  投票ありがとうございました。事後アンケートのご協力をよろしくお願い致します！！
+</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEEsYxLgNsRQSAaBudmFnCXzDXhFPrh0v93hJ7G5BYl3u9_w/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">
+  読み込んでいます
+</iframe>
+<br>
+<button type="button" class="btn btn-secondary"><%= link_to 'Logout', logout_path, method: :delete %></button>
